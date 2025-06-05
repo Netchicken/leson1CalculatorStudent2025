@@ -1,42 +1,86 @@
 #root {
-  max-width: 1280px;
+  /* EVERYTHING LIVES IN ROOT!; */
+  max-width: fit-content;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  * {
+    font-size: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .App-link {
+    color: #61dafb;
   }
-}
+  .Singlebutton {
+    border: 0.5px solid #413f3f;
+    color: rgb(182, 241, 240);
+    justify-content: center;
+    align-items: center;
+    background-color: #428e57;
+    width: 150px;
+    height: 50px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+  .Singlebutton:hover {
+    background-color: #11dd0a;
+  }
+  .calc-box {
+    box-shadow: 0px 0px 100px #06678a;
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px;
+    /*width of box */
+  }
+  .button {
+    border: 0.5px solid #413f3f;
+    color: rgb(182, 241, 240);
+    justify-content: center;
+    align-items: center;
+    background-color: #428e57;
+    width: 50px;
+    height: 50px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+  .button:hover {
+    background-color: #d66b6b;
+  }
+  .digits button {
+    /* background-color: #cfd867; */
+    height: 50px;
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    border: 0.5px solid #b0b0b0;
+  }
+  .digits button:hover {
+    color: #282c34;
+    background-color: #c9c9c9;
+  }
+  .output {
+    height: 50px;
+    box-shadow: inset 0px 0px 20px #d1ffef;
+    padding-right: 2%;
+    text-align: right;
+    font-size: 30px;
+    display: flex;
+    opacity: 46.5%;
+    background-color: #c5c5c5;
+    border: 1px solid black;
+    flex-direction: column;
+  }
+  .preRes {
+    opacity: 26.5%;
+  }
 }

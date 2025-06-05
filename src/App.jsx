@@ -1,24 +1,79 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import "./App.css"; // import the CSS file for styling
 
-export default function App() {
-  const [count, setCount] = useState(0); // set initial state for count
+function App() {
+  const [answer, setAnswer] = useState("");
+  const [first, setFirst] = useState(10);
+  const [second, setSecond] = useState(22);
 
-  var Add = (x) => {
-    x = x + 1;
-    console.log("Add 1 to counter", x);
-    setCount(x);
+  //Value = +-/X
+  const Calculate = (value) => {
+    console.log(value);
+
+    switch (value) {
+      case "+":
+        setAnswer(Number(first + second)); //Number is need to stop concatenation
+        break;
+      case "-":
+        setAnswer(first - second);
+        break;
+      case "X":
+        setAnswer(first * second);
+        break;
+      case "/":
+        setAnswer(first / second);
+        break;
+      default:
+        setAnswer("Invalid operation");
+    }
   };
+
   return (
-    <div>
-      <button className="Addbutton" onClick={() => Add(count)}>
-        Add 1 to {count}
-      </button>
-      <h2>{count}</h2>
-    </div>
+    <>
+      <div className="App-header">
+        <h1>Simple Calculator</h1>
+        <input
+          type="number"
+          value={first}
+          onChange={(e) => setFirst(e.target.value)}
+        />
+        <input
+          type="number"
+          value={second}
+          onChange={(e) => setSecond(e.target.value)}
+        />
+        <input type="number" value={answer} readOnly />
+
+        <div className="calc-box">
+          <p>
+            {first} + {second} = {answer}
+          </p>
+
+          <div className="digits">
+            <button className="Singlebutton" onClick={() => Calculate("+")}>
+              +
+            </button>
+            <button className="Singlebutton" onClick={() => Calculate("-")}>
+              -
+            </button>
+            <button className="Singlebutton" onClick={() => Calculate("X")}>
+              X
+            </button>
+            <button className="Singlebutton" onClick={() => Calculate("/")}>
+              /
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
+export default App;
 
-//App;
+// const [calc, setCalc] = useState({
+//   first: "",
+//   second: "",
+//   operator: "",
+//   result: "",
+//   enteringSecond: false,
+// });
