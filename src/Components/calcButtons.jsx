@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Inputs from "./Inputs"; // Assuming you have an Inputs component for input fields
+import SingleButton from "./SingleButton"; // Assuming you have a SingleButton component for buttons
 
 export const CalcButtons = () => {
   const [answer, setAnswer] = useState("");
@@ -45,18 +46,10 @@ export const CalcButtons = () => {
         </p>
 
         <div className="digits">
-          <button className="Singlebutton" onClick={() => Calculate("+")}>
-            +
-          </button>
-          <button className="Singlebutton" onClick={() => Calculate("-")}>
-            -
-          </button>
-          <button className="Singlebutton" onClick={() => Calculate("X")}>
-            X
-          </button>
-          <button className="Singlebutton" onClick={() => Calculate("/")}>
-            /
-          </button>
+          <SingleButton symbol="+" Calculate={Calculate}></SingleButton>
+          <SingleButton symbol="-" Calculate={Calculate}></SingleButton>
+          <SingleButton symbol="/" Calculate={Calculate}></SingleButton>
+          <SingleButton symbol="X" Calculate={Calculate}></SingleButton>
         </div>
       </div>
     </div>
