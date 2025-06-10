@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Inputs from "./Inputs"; // Assuming you have an Inputs component for input fields
 
 export const CalcButtons = () => {
   const [answer, setAnswer] = useState("");
@@ -30,17 +31,13 @@ export const CalcButtons = () => {
 
   return (
     <div>
-      <input
-        type="number"
-        value={first}
-        onChange={(e) => setFirst(e.target.value)}
-      />
-      <input
-        type="number"
-        value={second}
-        onChange={(e) => setSecond(e.target.value)}
-      />
-      <input type="number" value={answer} readOnly />
+      <Inputs
+        first={first}
+        setFirst={setFirst}
+        second={second}
+        setSecond={setSecond}
+        answer={answer}
+      ></Inputs>
 
       <div className="calc-box">
         <p>
