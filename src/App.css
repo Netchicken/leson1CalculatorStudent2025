@@ -56,6 +56,23 @@
   .button:hover {
     background-color: #d66b6b;
   }
+
+  .numberbutton {
+    border: 0.5px solid #413f3f;
+    color: rgb(10, 99, 47);
+    justify-content: center;
+    align-items: center;
+    background-color: #97eee7;
+    width: 30px;
+    height: 50px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+
+  .numberbutton:hover {
+    background-color: #11dd0a;
+  }
+
   .digits button {
     /* background-color: #cfd867; */
     height: 50px;
