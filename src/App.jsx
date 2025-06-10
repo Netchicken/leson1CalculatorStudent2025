@@ -1,70 +1,16 @@
 import { useState } from "react";
 import "./App.css"; // import the CSS file for styling
-
+import { CalcButtons } from "./Components/calcButtons"; // Assuming you have a calcButtons component
 function App() {
-  const [answer, setAnswer] = useState("");
-  const [first, setFirst] = useState(10);
-  const [second, setSecond] = useState(22);
-
-  //Value = +-/X
-  const Calculate = (value) => {
-    console.log(value);
-
-    switch (value) {
-      case "+":
-        setAnswer(Number(first + second)); //Number is need to stop concatenation
-        break;
-      case "-":
-        setAnswer(first - second);
-        break;
-      case "X":
-        setAnswer(first * second);
-        break;
-      case "/":
-        setAnswer(first / second);
-        break;
-      default:
-        setAnswer("Invalid operation");
-    }
-  };
-
   return (
     <>
-      <div className="App-header">
-        <h1>Simple Calculator</h1>
-        <input
-          type="number"
-          value={first}
-          onChange={(e) => setFirst(e.target.value)}
-        />
-        <input
-          type="number"
-          value={second}
-          onChange={(e) => setSecond(e.target.value)}
-        />
-        <input type="number" value={answer} readOnly />
-
-        <div className="calc-box">
-          <p>
-            {first} + {second} = {answer}
-          </p>
-
-          <div className="digits">
-            <button className="Singlebutton" onClick={() => Calculate("+")}>
-              +
-            </button>
-            <button className="Singlebutton" onClick={() => Calculate("-")}>
-              -
-            </button>
-            <button className="Singlebutton" onClick={() => Calculate("X")}>
-              X
-            </button>
-            <button className="Singlebutton" onClick={() => Calculate("/")}>
-              /
-            </button>
-          </div>
-        </div>
+      <div className="App-Header">
+        <h1>Calculator</h1>
+        <CalcButtons />
       </div>
+      <footer>
+        <p>Made with ❤️ by Gary</p>
+      </footer>
     </>
   );
 }
