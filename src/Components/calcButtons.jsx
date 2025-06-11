@@ -48,12 +48,10 @@ export const CalcButtons = () => {
     }
     if (value === "Del") {
       if (trigger === false) {
-        let len = first;
         let newFirst = String(first).slice(0, -1); // Remove last character from first
         setFirst(newFirst === "" ? 0 : Number(newFirst)); // Convert to number or set to 0 if empty
         console.log("Del pressed newFirst", newFirst);
       } else {
-        let len = second;
         let newSecond = String(second).slice(0, -1); // Remove last character from first
         setSecond(newSecond === "" ? 0 : Number(newSecond)); // Convert to number or set to 0 if empty
         console.log("Del pressed newSecond", newSecond);
