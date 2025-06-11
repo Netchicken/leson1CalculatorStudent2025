@@ -7,8 +7,8 @@ import { evaluate } from "mathjs"; // Importing mathjs for calculations
 
 export const CalcButtons = () => {
   const [answer, setAnswer] = useState("");
-  const [first, setFirst] = useState(10);
-  const [second, setSecond] = useState(22);
+  const [first, setFirst] = useState(""); // Initialize as an empty string to handle concatenation
+  const [second, setSecond] = useState("");
   const [trigger, setTrigger] = useState(false);
   const [symbolUsed, setSymbolUsed] = useState(""); // To store the operator
 
@@ -39,9 +39,25 @@ export const CalcButtons = () => {
       setSymbolUsed(value); //save it to use below
     }
     if (value === "=") {
-      setAnswer(evaluate(`${first} ${symbolUsed} ${second}`));
-
-      // 5 + 4
+      if (symbolUsed === "X") {
+        let XUsed = "*"; // Convert 'X' to '*' for mathjs compatibility
+        setAnswer(evaluate(`${first} ${XUsed} ${second}`));
+      } else {
+        setAnswer(evaluate(`${first} ${symbolUsed} ${second}`));
+      }
+    }
+    if (value === "Del") {
+      if (trigger === false) {
+        let len = first;
+        let newFirst = String(first).slice(0, -1); // Remove last character from first
+        setFirst(newFirst === "" ? 0 : Number(newFirst)); // Convert to number or set to 0 if empty
+        console.log("Del pressed newFirst", newFirst);
+      } else {
+        let len = second;
+        let newSecond = String(second).slice(0, -1); // Remove last character from first
+        setSecond(newSecond === "" ? 0 : Number(newSecond)); // Convert to number or set to 0 if empty
+        console.log("Del pressed newSecond", newSecond);
+      }
     }
   };
   return (
@@ -65,6 +81,8 @@ export const CalcButtons = () => {
           <SingleButton symbol="/" Calculate={Calculate}></SingleButton>
           <SingleButton symbol="X" Calculate={Calculate}></SingleButton>
           <SingleButton symbol="=" Calculate={Calculate}></SingleButton>
+          <SingleButton symbol="Del" Calculate={Calculate}></SingleButton>
+          <SingleButton symbol="C" Calculate={Calculate}></SingleButton>
         </div>
         <ButtonKeypad keyInput={keyInput} />
       </div>
